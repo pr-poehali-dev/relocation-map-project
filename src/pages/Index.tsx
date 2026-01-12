@@ -159,6 +159,300 @@ const cities: City[] = [
       transport: { monthly: "$10", taxi: "$0.30/км", gasoline: "$1.10/л" },
       taxes: { income: "20%", vat: "18%", corporate: "15%" }
     }
+  },
+  {
+    id: "7",
+    name: "Амстердам",
+    country: "Нидерланды",
+    lat: 52.3676,
+    lng: 4.9041,
+    costOfLiving: 88,
+    safety: 88,
+    healthcare: 95,
+    education: 93,
+    ecology: 90,
+    population: "872 тыс.",
+    language: "Голландский",
+    description: "Велосипедная столица Европы с высокими зарплатами и развитой цифровой инфраструктурой.",
+    costDetails: {
+      housing: { rent1br: "€1500-2000", rent3br: "€2500-3500", utilities: "€150-200" },
+      food: { meal: "€15-20", groceries: "€350-450", coffee: "€3.50" },
+      transport: { monthly: "€96", taxi: "€2.50/км", gasoline: "€1.90/л" },
+      taxes: { income: "37-49%", vat: "21%", corporate: "25%" }
+    }
+  },
+  {
+    id: "8",
+    name: "Прага",
+    country: "Чехия",
+    lat: 50.0755,
+    lng: 14.4378,
+    costOfLiving: 58,
+    safety: 85,
+    healthcare: 80,
+    education: 86,
+    ecology: 78,
+    population: "1.3 млн",
+    language: "Чешский",
+    description: "Красивый исторический город с доступными ценами и растущим IT-сектором.",
+    costDetails: {
+      housing: { rent1br: "€700-1100", rent3br: "€1400-2000", utilities: "€150-200" },
+      food: { meal: "€10-14", groceries: "€250-350", coffee: "€2.50" },
+      transport: { monthly: "€24", taxi: "€1.20/км", gasoline: "€1.50/л" },
+      taxes: { income: "15-23%", vat: "21%", corporate: "19%" }
+    }
+  },
+  {
+    id: "9",
+    name: "Стамбул",
+    country: "Турция",
+    lat: 41.0082,
+    lng: 28.9784,
+    costOfLiving: 48,
+    safety: 68,
+    healthcare: 72,
+    education: 75,
+    ecology: 65,
+    population: "15.5 млн",
+    language: "Турецкий",
+    description: "Мегаполис на стыке Европы и Азии с бурно развивающейся экономикой.",
+    costDetails: {
+      housing: { rent1br: "₺8000-15000", rent3br: "₺15000-30000", utilities: "₺800-1200" },
+      food: { meal: "₺150-300", groceries: "₺5000-8000", coffee: "₺50" },
+      transport: { monthly: "₺500", taxi: "₺15/км", gasoline: "₺40/л" },
+      taxes: { income: "15-40%", vat: "18%", corporate: "20%" }
+    }
+  },
+  {
+    id: "10",
+    name: "Бангкок",
+    country: "Таиланд",
+    lat: 13.7563,
+    lng: 100.5018,
+    costOfLiving: 52,
+    safety: 75,
+    healthcare: 78,
+    education: 72,
+    ecology: 62,
+    population: "10.7 млн",
+    language: "Тайский",
+    description: "Крупнейший город Юго-Восточной Азии с низкими расходами и развитой инфраструктурой.",
+    costDetails: {
+      housing: { rent1br: "฿12000-20000", rent3br: "฿25000-45000", utilities: "฿2000-3000" },
+      food: { meal: "฿80-150", groceries: "฿8000-12000", coffee: "฿100" },
+      transport: { monthly: "฿1500", taxi: "฿35/км", gasoline: "฿35/л" },
+      taxes: { income: "0-35%", vat: "7%", corporate: "20%" }
+    }
+  },
+  {
+    id: "11",
+    name: "Сингапур",
+    country: "Сингапур",
+    lat: 1.3521,
+    lng: 103.8198,
+    costOfLiving: 95,
+    safety: 98,
+    healthcare: 98,
+    education: 95,
+    ecology: 88,
+    population: "5.7 млн",
+    language: "Английский, Китайский, Малайский",
+    description: "Финансовый центр Азии с высочайшим уровнем безопасности и инфраструктуры.",
+    costDetails: {
+      housing: { rent1br: "S$2500-3500", rent3br: "S$4500-7000", utilities: "S$150-250" },
+      food: { meal: "S$8-15", groceries: "S$400-600", coffee: "S$5.00" },
+      transport: { monthly: "S$120", taxi: "S$1.50/км", gasoline: "S$2.50/л" },
+      taxes: { income: "0-22%", vat: "8%", corporate: "17%" }
+    }
+  },
+  {
+    id: "12",
+    name: "Токио",
+    country: "Япония",
+    lat: 35.6762,
+    lng: 139.6503,
+    costOfLiving: 82,
+    safety: 95,
+    healthcare: 95,
+    education: 92,
+    ecology: 80,
+    population: "14 млн",
+    language: "Японский",
+    description: "Технологическая столица мира с идеальной транспортной системой и безопасностью.",
+    costDetails: {
+      housing: { rent1br: "¥100000-150000", rent3br: "¥200000-350000", utilities: "¥15000-25000" },
+      food: { meal: "¥1000-1500", groceries: "¥40000-60000", coffee: "¥400" },
+      transport: { monthly: "¥10000", taxi: "¥80/км", gasoline: "¥160/л" },
+      taxes: { income: "5-45%", vat: "10%", corporate: "23%" }
+    }
+  },
+  {
+    id: "13",
+    name: "Сеул",
+    country: "Южная Корея",
+    lat: 37.5665,
+    lng: 126.978,
+    costOfLiving: 75,
+    safety: 88,
+    healthcare: 92,
+    education: 95,
+    ecology: 72,
+    population: "9.7 млн",
+    language: "Корейский",
+    description: "Город высоких технологий с развитой стартап-экосистемой и быстрым интернетом.",
+    costDetails: {
+      housing: { rent1br: "₩800000-1500000", rent3br: "₩1500000-2500000", utilities: "₩150000-200000" },
+      food: { meal: "₩8000-12000", groceries: "₩300000-450000", coffee: "₩4500" },
+      transport: { monthly: "₩60000", taxi: "₩1000/км", gasoline: "₩1700/л" },
+      taxes: { income: "6-45%", vat: "10%", corporate: "24%" }
+    }
+  },
+  {
+    id: "14",
+    name: "Нью-Йорк",
+    country: "США",
+    lat: 40.7128,
+    lng: -74.006,
+    costOfLiving: 100,
+    safety: 72,
+    healthcare: 88,
+    education: 90,
+    ecology: 75,
+    population: "8.3 млн",
+    language: "Английский",
+    description: "Финансовая столица мира с безграничными возможностями для бизнеса и карьеры.",
+    costDetails: {
+      housing: { rent1br: "$2500-3500", rent3br: "$4500-7000", utilities: "$150-250" },
+      food: { meal: "$20-35", groceries: "$500-700", coffee: "$5.00" },
+      transport: { monthly: "$127", taxi: "$3.00/км", gasoline: "$0.90/л" },
+      taxes: { income: "4-10.9%", vat: "8.875%", corporate: "21%" }
+    }
+  },
+  {
+    id: "15",
+    name: "Торонто",
+    country: "Канада",
+    lat: 43.6532,
+    lng: -79.3832,
+    costOfLiving: 80,
+    safety: 85,
+    healthcare: 92,
+    education: 95,
+    ecology: 85,
+    population: "2.9 млн",
+    language: "Английский, Французский",
+    description: "Мультикультурный город с сильной экономикой и развитой системой образования.",
+    costDetails: {
+      housing: { rent1br: "C$1800-2500", rent3br: "C$3000-4500", utilities: "C$150-200" },
+      food: { meal: "C$20-30", groceries: "C$400-600", coffee: "C$4.50" },
+      transport: { monthly: "C$156", taxi: "C$2.00/км", gasoline: "C$1.50/л" },
+      taxes: { income: "15-33%", vat: "13%", corporate: "26.5%" }
+    }
+  },
+  {
+    id: "16",
+    name: "Мехико",
+    country: "Мексика",
+    lat: 19.4326,
+    lng: -99.1332,
+    costOfLiving: 50,
+    safety: 62,
+    healthcare: 70,
+    education: 72,
+    ecology: 58,
+    population: "9.2 млн",
+    language: "Испанский",
+    description: "Крупнейший город Латинской Америки с богатой культурой и низкими ценами.",
+    costDetails: {
+      housing: { rent1br: "$400-700", rent3br: "$800-1400", utilities: "$50-80" },
+      food: { meal: "$8-12", groceries: "$200-300", coffee: "$2.00" },
+      transport: { monthly: "$15", taxi: "$0.50/км", gasoline: "$1.00/л" },
+      taxes: { income: "1.92-35%", vat: "16%", corporate: "30%" }
+    }
+  },
+  {
+    id: "17",
+    name: "Буэнос-Айрес",
+    country: "Аргентина",
+    lat: -34.6037,
+    lng: -58.3816,
+    costOfLiving: 42,
+    safety: 65,
+    healthcare: 75,
+    education: 78,
+    ecology: 70,
+    population: "3 млн",
+    language: "Испанский",
+    description: "Париж Южной Америки с европейской архитектурой и низкой стоимостью жизни.",
+    costDetails: {
+      housing: { rent1br: "$300-500", rent3br: "$600-1000", utilities: "$50-100" },
+      food: { meal: "$10-15", groceries: "$ 200-300", coffee: "$2.00" },
+      transport: { monthly: "$12", taxi: "$0.80/км", gasoline: "$1.20/л" },
+      taxes: { income: "5-35%", vat: "21%", corporate: "25-35%" }
+    }
+  },
+  {
+    id: "18",
+    name: "Сидней",
+    country: "Австралия",
+    lat: -33.8688,
+    lng: 151.2093,
+    costOfLiving: 92,
+    safety: 88,
+    healthcare: 95,
+    education: 95,
+    ecology: 92,
+    population: "5.3 млн",
+    language: "Английский",
+    description: "Крупнейший город Австралии с прекрасным климатом и высоким уровнем жизни.",
+    costDetails: {
+      housing: { rent1br: "A$2000-3000", rent3br: "A$3500-5500", utilities: "A$200-300" },
+      food: { meal: "A$20-30", groceries: "A$500-700", coffee: "A$4.50" },
+      transport: { monthly: "A$217", taxi: "A$2.50/км", gasoline: "A$1.80/л" },
+      taxes: { income: "0-45%", vat: "10%", corporate: "30%" }
+    }
+  },
+  {
+    id: "19",
+    name: "Лондон",
+    country: "Великобритания",
+    lat: 51.5074,
+    lng: -0.1278,
+    costOfLiving: 95,
+    safety: 78,
+    healthcare: 90,
+    education: 95,
+    ecology: 75,
+    population: "9 млн",
+    language: "Английский",
+    description: "Глобальный финансовый центр с богатой историей и мультикультурной средой.",
+    costDetails: {
+      housing: { rent1br: "£1500-2500", rent3br: "£3000-5000", utilities: "£150-250" },
+      food: { meal: "£15-25", groceries: "£350-500", coffee: "£3.50" },
+      transport: { monthly: "£156", taxi: "£2.50/км", gasoline: "£1.50/л" },
+      taxes: { income: "20-45%", vat: "20%", corporate: "25%" }
+    }
+  },
+  {
+    id: "20",
+    name: "Париж",
+    country: "Франция",
+    lat: 48.8566,
+    lng: 2.3522,
+    costOfLiving: 90,
+    safety: 72,
+    healthcare: 95,
+    education: 92,
+    ecology: 78,
+    population: "2.2 млн",
+    language: "Французский",
+    description: "Город моды и культуры с развитой инфраструктурой и богатым культурным наследием.",
+    costDetails: {
+      housing: { rent1br: "€1200-2000", rent3br: "€2500-4000", utilities: "€150-200" },
+      food: { meal: "€15-25", groceries: "€350-500", coffee: "€3.50" },
+      transport: { monthly: "€75", taxi: "€2.00/км", gasoline: "€1.80/л" },
+      taxes: { income: "0-45%", vat: "20%", corporate: "25%" }
+    }
   }
 ];
 
@@ -214,6 +508,20 @@ const Index = () => {
                     <SelectItem value="Польша">Польша</SelectItem>
                     <SelectItem value="ОАЭ">ОАЭ</SelectItem>
                     <SelectItem value="Грузия">Грузия</SelectItem>
+                    <SelectItem value="Нидерланды">Нидерланды</SelectItem>
+                    <SelectItem value="Чехия">Чехия</SelectItem>
+                    <SelectItem value="Турция">Турция</SelectItem>
+                    <SelectItem value="Таиланд">Таиланд</SelectItem>
+                    <SelectItem value="Сингапур">Сингапур</SelectItem>
+                    <SelectItem value="Япония">Япония</SelectItem>
+                    <SelectItem value="Южная Корея">Южная Корея</SelectItem>
+                    <SelectItem value="США">США</SelectItem>
+                    <SelectItem value="Канада">Канада</SelectItem>
+                    <SelectItem value="Мексика">Мексика</SelectItem>
+                    <SelectItem value="Аргентина">Аргентина</SelectItem>
+                    <SelectItem value="Австралия">Австралия</SelectItem>
+                    <SelectItem value="Великобритания">Великобритания</SelectItem>
+                    <SelectItem value="Франция">Франция</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
