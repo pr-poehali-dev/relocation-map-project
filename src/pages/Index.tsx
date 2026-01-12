@@ -7,6 +7,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
+import GoogleMap from "@/components/GoogleMap";
+
+interface CostDetails {
+  housing: { rent1br: string; rent3br: string; utilities: string };
+  food: { meal: string; groceries: string; coffee: string };
+  transport: { monthly: string; taxi: string; gasoline: string };
+  taxes: { income: string; vat: string; corporate: string };
+}
 
 interface City {
   id: string;
@@ -22,6 +30,7 @@ interface City {
   population: string;
   language: string;
   description: string;
+  costDetails: CostDetails;
 }
 
 const cities: City[] = [
@@ -38,7 +47,13 @@ const cities: City[] = [
     ecology: 88,
     population: "504 тыс.",
     language: "Португальский",
-    description: "Столица Португалии с мягким климатом, развитой IT-индустрией и доступными ценами для Европы."
+    description: "Столица Португалии с мягким климатом, развитой IT-индустрией и доступными ценами для Европы.",
+    costDetails: {
+      housing: { rent1br: "€800-1200", rent3br: "€1500-2200", utilities: "€80-120" },
+      food: { meal: "€10-15", groceries: "€250-350", coffee: "€1.50" },
+      transport: { monthly: "€40", taxi: "€0.50/км", gasoline: "€1.60/л" },
+      taxes: { income: "14.5-48%", vat: "23%", corporate: "21%" }
+    }
   },
   {
     id: "2",
@@ -53,7 +68,13 @@ const cities: City[] = [
     ecology: 85,
     population: "3.6 млн",
     language: "Немецкий",
-    description: "Культурная столица Европы с сильной стартап-экосистемой и отличной социальной инфраструктурой."
+    description: "Культурная столица Европы с сильной стартап-экосистемой и отличной социальной инфраструктурой.",
+    costDetails: {
+      housing: { rent1br: "€1000-1500", rent3br: "€2000-3000", utilities: "€150-200" },
+      food: { meal: "€12-18", groceries: "€300-400", coffee: "€3.00" },
+      transport: { monthly: "€49", taxi: "€2.00/км", gasoline: "€1.75/л" },
+      taxes: { income: "14-45%", vat: "19%", corporate: "15%" }
+    }
   },
   {
     id: "3",
@@ -68,7 +89,13 @@ const cities: City[] = [
     ecology: 82,
     population: "1.6 млн",
     language: "Испанский, Каталанский",
-    description: "Средиземноморский мегаполис с развитой цифровой экономикой и высоким качеством жизни."
+    description: "Средиземноморский мегаполис с развитой цифровой экономикой и высоким качеством жизни.",
+    costDetails: {
+      housing: { rent1br: "€900-1400", rent3br: "€1800-2500", utilities: "€100-150" },
+      food: { meal: "€12-16", groceries: "€280-380", coffee: "€1.80" },
+      transport: { monthly: "€40", taxi: "€1.10/км", gasoline: "€1.55/л" },
+      taxes: { income: "19-47%", vat: "21%", corporate: "25%" }
+    }
   },
   {
     id: "4",
@@ -83,7 +110,13 @@ const cities: City[] = [
     ecology: 72,
     population: "1.8 млн",
     language: "Польский",
-    description: "Динамично развивающаяся столица с растущим рынком IT и доступными ценами."
+    description: "Динамично развивающаяся столица с растущим рынком IT и доступными ценами.",
+    costDetails: {
+      housing: { rent1br: "€600-900", rent3br: "€1200-1800", utilities: "€100-150" },
+      food: { meal: "€8-12", groceries: "€220-300", coffee: "€2.50" },
+      transport: { monthly: "€25", taxi: "€0.80/км", gasoline: "€1.40/л" },
+      taxes: { income: "12-32%", vat: "23%", corporate: "19%" }
+    }
   },
   {
     id: "5",
@@ -98,7 +131,13 @@ const cities: City[] = [
     ecology: 65,
     population: "3.3 млн",
     language: "Арабский, Английский",
-    description: "Международный бизнес-хаб с нулевым подоходным налогом и высокими стандартами безопасности."
+    description: "Международный бизнес-хаб с нулевым подоходным налогом и высокими стандартами безопасности.",
+    costDetails: {
+      housing: { rent1br: "$1200-1800", rent3br: "$2500-4000", utilities: "$150-250" },
+      food: { meal: "$15-25", groceries: "$400-600", coffee: "$5.00" },
+      transport: { monthly: "$90", taxi: "$0.50/км", gasoline: "$0.60/л" },
+      taxes: { income: "0%", vat: "5%", corporate: "0-9%" }
+    }
   },
   {
     id: "6",
@@ -113,7 +152,13 @@ const cities: City[] = [
     ecology: 78,
     population: "1.1 млн",
     language: "Грузинский",
-    description: "Город с богатой историей, развивающейся IT-сферой и лояльной визовой политикой."
+    description: "Город с богатой историей, развивающейся IT-сферой и лояльной визовой политикой.",
+    costDetails: {
+      housing: { rent1br: "$300-500", rent3br: "$600-1000", utilities: "$50-80" },
+      food: { meal: "$8-12", groceries: "$150-250", coffee: "$2.00" },
+      transport: { monthly: "$10", taxi: "$0.30/км", gasoline: "$1.10/л" },
+      taxes: { income: "20%", vat: "18%", corporate: "15%" }
+    }
   }
 ];
 
@@ -213,59 +258,11 @@ const Index = () => {
         </aside>
 
         <main className="flex-1 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-card via-background to-sidebar">
-            <div className="relative w-full h-full p-8 overflow-y-auto">
-              <div className="grid grid-cols-3 gap-6 max-w-7xl mx-auto">
-                {filteredCities.map((city) => (
-                  <Card
-                    key={city.id}
-                    className="p-5 bg-card/80 backdrop-blur-sm border-border hover:border-primary transition-all cursor-pointer hover:scale-105 duration-200"
-                    onClick={() => setSelectedCity(city)}
-                  >
-                    <div className="space-y-4">
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <h3 className="text-lg font-semibold text-foreground">{city.name}</h3>
-                          <p className="text-sm text-muted-foreground">{city.country}</p>
-                        </div>
-                        <div className={`w-3 h-3 rounded-full ${getCostColor(city.costOfLiving)}`} />
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div className="flex items-center gap-1">
-                          <Icon name="Users" size={14} className="text-muted-foreground" />
-                          <span className="text-muted-foreground">{city.population}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Icon name="MessageCircle" size={14} className="text-muted-foreground" />
-                          <span className="text-muted-foreground truncate">{city.language.split(',')[0]}</span>
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-muted-foreground">Безопасность</span>
-                          <span className={`font-medium ${getRatingColor(city.safety)}`}>{city.safety}/100</span>
-                        </div>
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-muted-foreground">Медицина</span>
-                          <span className={`font-medium ${getRatingColor(city.healthcare)}`}>{city.healthcare}/100</span>
-                        </div>
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-muted-foreground">Образование</span>
-                          <span className={`font-medium ${getRatingColor(city.education)}`}>{city.education}/100</span>
-                        </div>
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-muted-foreground">Экология</span>
-                          <span className={`font-medium ${getRatingColor(city.ecology)}`}>{city.ecology}/100</span>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </div>
+          <div className="absolute inset-0">
+            <GoogleMap cities={filteredCities} onCitySelect={setSelectedCity} selectedCity={selectedCity} />
           </div>
+
+          
 
           {selectedCity && (
             <div className="absolute inset-0 bg-background/95 backdrop-blur-sm z-10 p-8 overflow-y-auto animate-fade-in">
@@ -347,6 +344,92 @@ const Index = () => {
                     ))}
                   </div>
                 </Card>
+
+                <div className="grid grid-cols-2 gap-6 mb-6">
+                  <Card className="p-6 bg-card border-border">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Icon name="Home" size={20} className="text-primary" />
+                      <h3 className="text-lg font-semibold text-foreground">Жильё</h3>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Аренда 1-комн.</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.housing.rent1br}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Аренда 3-комн.</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.housing.rent3br}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Коммунальные</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.housing.utilities}</span>
+                      </div>
+                    </div>
+                  </Card>
+
+                  <Card className="p-6 bg-card border-border">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Icon name="ShoppingCart" size={20} className="text-primary" />
+                      <h3 className="text-lg font-semibold text-foreground">Продукты</h3>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Обед в ресторане</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.food.meal}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Продукты в месяц</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.food.groceries}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Кофе</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.food.coffee}</span>
+                      </div>
+                    </div>
+                  </Card>
+
+                  <Card className="p-6 bg-card border-border">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Icon name="Car" size={20} className="text-primary" />
+                      <h3 className="text-lg font-semibold text-foreground">Транспорт</h3>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Проездной</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.transport.monthly}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Такси</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.transport.taxi}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Бензин</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.transport.gasoline}</span>
+                      </div>
+                    </div>
+                  </Card>
+
+                  <Card className="p-6 bg-card border-border">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Icon name="Receipt" size={20} className="text-primary" />
+                      <h3 className="text-lg font-semibold text-foreground">Налоги</h3>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Подоходный</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.taxes.income}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">НДС</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.taxes.vat}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Корпоративный</span>
+                        <span className="text-sm font-medium text-foreground">{selectedCity.costDetails.taxes.corporate}</span>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
 
                 <Card className="p-6 bg-card border-border">
                   <h3 className="text-lg font-semibold text-foreground mb-3">Описание</h3>
