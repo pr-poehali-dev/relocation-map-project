@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
-import GoogleMap from "@/components/GoogleMap";
+import DGisMap from "@/components/DGisMap";
 
 interface CostDetails {
   housing: { rent1br: string; rent3br: string; utilities: string };
@@ -259,7 +259,7 @@ const Index = () => {
 
         <main className="flex-1 relative overflow-hidden">
           <div className="absolute inset-0">
-            <GoogleMap cities={filteredCities} onCitySelect={setSelectedCity} selectedCity={selectedCity} />
+            <DGisMap cities={filteredCities} onCitySelect={setSelectedCity} selectedCity={selectedCity} />
           </div>
 
           
